@@ -1,63 +1,45 @@
 <img width="1280" alt="readme-banner" src="https://github.com/user-attachments/assets/35332e92-44cb-425b-9dff-27bcf1023c6c">
 
-# [Project Name] 🎯
+# SAPSUIII 🎯
 
 
 ## Basic Details
-### Team Name: [Name]
+### Team Name: SUIII
 
 
 ### Team Members
-- Team Lead: [Name] - [College]
-- Member 2: [Name] - [College]
-- Member 3: [Name] - [College]
+- Team Lead: SIVANANDANA J P - TKM COLLEGE OF ENGNEERING ,KOLLAM
+- Member 2: AKASH A S -  TKM COLLEGE OF ENGNEERING ,KOLLAM
+- Member 3: PARTHIV P -  TKM COLLEGE OF ENGNEERING ,KOLLAM
 
 ### Project Description
-[2-3 lines about what your project does]
+Sapsuiii is a playful chat app where you can talk to iconic characters like Mona Lisa, Shinchan, and Queen Elizabeth—each with their own unique vibe and witty responses for endless fun!
 
 ### The Problem (that doesn't exist)
-[What ridiculous problem are you solving?]
+OUR BOREDEM
 
 ### The Solution (that nobody asked for)
-[How are you solving it? Keep it fun!]
+OUR WEBPAGE
 
 ## Technical Details
 ### Technologies/Components Used
 For Software:
-- [Languages used]
-- [Frameworks used]
-- [Libraries used]
-- [Tools used]
-
-For Hardware:
-- [List main components]
-- [List specifications]
-- [List tools required]
+- HTML,CSS,JAVASCRIPT
+- 
+- PHOTO EDITOR , VIDEO EDITOR 
 
 ### Implementation
 For Software:
-# Installation
-[commands]
 
-# Run
-[commands]
 
 ### Project Documentation
 For Software:
 
-# Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
-
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
-
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
-
-# Diagrams
-![Workflow](Add your workflow/architecture diagram here)
-*Add caption explaining your workflow*
+# SCREENSHOTS
+![FRONT PAGE JPEG](https://github.com/user-attachments/assets/b90456de-416a-4a90-b2e1-937d54c60eb3)
+![PROFILE SELECTION PAGE JPEG](https://github.com/user-attachments/assets/6103eefd-8e82-4d98-9dc8-159c2a08f12b)
+![PROFILE PIC JPEG](https://github.com/user-attachments/assets/6692c2ba-4738-4c83-a44d-3494261fa44e
+![CHATBOX JPEG](https://github.com/user-attachments/assets/7e70c4ac-d1cb-4bca-9e0f-817276f06987)
 
 For Hardware:
 
@@ -80,16 +62,16 @@ For Hardware:
 
 ### Project Demo
 # Video
-[Add your demo video link here]
+https://drive.google.com/file/d/18cF5ziLrXRZPdXUIxSzXMwATu3ZUQaGB/view
 *Explain what the video demonstrates*
 
 # Additional Demos
 [Add any extra demo materials/links]
 
 ## Team Contributions
-- [Name 1]: [Specific contributions]
-- [Name 2]: [Specific contributions]
-- [Name 3]: [Specific contributions]
+- [Sivananana J P]: [CSS ]
+- [PARTHIV p]: [javascript ]
+- [Akash A ]}: [html]
 
 ---
 Made with ❤️ at TinkerHub Useless Projects 
