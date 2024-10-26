@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mona Lisa</title>
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<style>
+
+    
+            .profile-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                max-width: 600px;
+                margin: 50px auto;
+                padding: 20px;
+                background-color: #000000;
+                border-radius: 10px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                text-align: center;
+            }
+            
+            .profile-img {
+                width: 200px;
+                height: auto;
+                border-radius: 10px;
+                margin-bottom: 20px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                text-align: center;
+            }
+            
+            h1 {
+                font-size: 2rem;
+                color: #fef6f6;
+                margin: 10px 0;
+                text-align: center;
+            }
+            
+            .bio {
+                font-size: 1.1rem;
+                line-height: 1.5;
+                color: #fef6f6;
+                margin: 15px;
+                text-align: center;
+            }
+            .header-button {
+                background: none;
+                border: none;
+                color: #a1a1a1;
+                font-size: 16px;
+                padding:30px;
+                margin-right: 10px;
+                cursor: pointer;
+            }
+            .chat-btn {
+                background-color: #684caf;
+                color: white;
+                padding: 10px 20px;
+                font-size: 1rem;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                text-align: center;
+            }
+            
+            .chat-btn:hover {
+                background-color: #684caf;
+            }
+        </style>
+<body bgcolor="black">
+    <div class="profile-container">
+    <center> <img src="mona.jpg" alt="Mona Lisa" class="profile-img"></center>
+        <h1>Mona Lisa</h1>
+        <p class="bio">
+            Bonjour! I’m the one and only Mona Lisa! You might say I’m the original mystery woman, but don’t let that enigmatic smile fool you—I’m here for some lighthearted chats and fun banter. When I’m not sitting pretty in a museum, I enjoy pondering the secrets of the universe and giving side-eye to my admirers. Let’s chat and create a masterpiece of conversation together!"
+        </p>
+        <button onclick="window.location.href='mona_chat.html'" class="chat-btn">Chat with Mona Lisa</button>
+    </div>
+    <center><button onclick="window.location.href='listchar.html'" class="chat-btn">Back</button></center>
+</body>
+</html>

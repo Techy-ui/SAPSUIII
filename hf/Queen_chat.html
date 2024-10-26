@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram-Style Chat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: 'Arial', sans-serif;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #121212;
+        color: white;
+    }
+
+    .chat-container {
+        width: 400px;
+        background-color: #1c1c1c;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .chat-header {
+        display: flex;
+        align-items: center;
+        background-color: #292929;
+        color: white;
+        padding: 15px;
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    .header-button {
+        background: none;
+        border: none;
+        color: #a1a1a1;
+        font-size: 16px;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+
+    .header-button:hover {
+        color: #ffffff;
+    }
+
+    .chat-box {
+        height: 400px;
+        overflow-y: auto;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .message {
+        margin: 10px 0;
+        padding: 10px;
+        border-radius: 15px;
+        max-width: 70%;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .user-message {
+        background-color: #2a2a2a;
+        color: #e0e0e0;
+        align-self: flex-end; /* Aligns user message to the right */
+    }
+
+    .character-message {
+        background-color: #333;
+        color: #f1f1f1;
+        align-self: flex-start; /* Aligns character message to the left */
+    }
+
+    .character-left {
+        font-style: italic;
+        color: #f1f1f1;
+        text-align: center;
+        width: 100%; /* Full width to center-align */
+        margin: 20px 0; /* Space around the message */
+    }
+
+    .question-container {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 10px;
+        background-color: #1c1c1c;
+    }
+
+    .question-container button {
+        background-color: #3b3b3b;
+        color: #b0b0b0;
+        border: none;
+        padding: 10px;
+        margin: 5px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: bold;
+        width: 100%;
+        transition: 0.3s;
+    }
+
+    .question-container button:hover {
+        background-color: #535353;
+        color: white;
+    }
+</style>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <button class="header-button" onclick="window.location.href='queen.html'" class="chat-btn">Back</button>
+            <h2>Chat with Queen Elizabeth</h2>
+        </div>
+        <div id="chat-box" class="chat-box">
+
+        </div>
+        <div class="question-container">
+
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const chatBox = document.getElementById('chat-box'); 
+            const questionContainer = document.querySelector('.question-container');
+
+            // Predefined responses for each question
+            const responses = {
+                "Your Majesty, do you have a secret talent for charming world leaders?": "(Smiling) Diplomacy requires a gentle touch.",
+                "Who's the most dashing prince in the palace?":"(Winks) That's a state secret.",
+                "Would you rather wear a tiara or a crown to a dinner party? ": "(Laughs) Whichever matches my gown.",
+                "Can you teach me the royal art of poise and elegance?":"(Smiling) Good posture, my dear.",
+                "Did you fall in love with Prince Philip at first sight?":"(Blushes) Perhaps, but I was too shy.",
+                "What's the most romantic gesture Prince Philip made?":"(Recalls) A sunset sail on the Royal Yacht.",
+                "Would you trade your throne for a lifetime of love?":"(Smiling) Duty comes first.",
+                "Can you recite a poem that Prince Philip wrote for you?":"(Recites) 'My love, my heart, my everything....",
+                "What's the most sensual pleasure in the palace":"(Smiling) A warm cup of tea.",
+                "Would you rather stroll through Buckingham Gardens or Windsor Castle?":"(Smiling) Wherever Philip is.                Sorry Dear I have a meeting at the palace",
+                "Do you have a favorite perfume?":"(Whispers) Rose and lavender.                Sorry Dear I have a meeting at the palace",
+                "Would you rather be known as 'Lizzie'or'Or Majesty'":"(Smirks)Both,darling.                Sorry Dear I have a meeting at the palace",
+
+            };
+
+         
+            const questionSets = [
+                ["Your Majesty, do you have a secret talent for charming world leaders?",  "Who's the most dashing prince in the palace?",  "Would you rather wear a tiara or a crown to a dinner party? "],
+                ["Can you teach me the royal art of poise and elegance?", "Did you fall in love with Prince Philip at first sight?", "What's the most romantic gesture Prince Philip made?"],
+                ["Would you trade your throne for a lifetime of love?","Can you recite a poem that Prince Philip wrote for you?","What's the most sensual pleasure in the palace"],
+                ["Would you rather stroll through Buckingham Gardens or Windsor Castle?","Do you have a favorite perfume?","Would you rather be known as 'Lizzie'or'Or Majesty'"]
+                
+            ]
+           
+            function displayQuestionSet(questionSet) {
+                questionContainer.innerHTML = ""; 
+                questionSet.forEach(question => {
+                    const questionButton = document.createElement('button');
+                    questionButton.innerText = question;
+                    questionButton.onclick = () => sendQuestion(question);
+                    questionContainer.appendChild(questionButton);
+                });
+            }
+
+            
+            function sendQuestion(question) {
+               
+                displayMessage(question, 'user-message');
+                setTimeout(() => {
+                  
+                    displayMessage(responses[question], 'character-message');
+
+                    
+                    const nextSet = questionSets.shift(); 
+                    if (nextSet) {
+                        setTimeout(() => displayQuestionSet(nextSet), 500); 
+                    }else {
+                        setTimeout(displayCharacterLeft, 1000); 
+                    }
+                }, 500); 
+            }
+
+           
+            function displayMessage(message, messageType) {
+                const messageElement = document.createElement('div');
+                messageElement.className = `message ${messageType}`;
+                messageElement.innerText = message;
+                chatBox.appendChild(messageElement);
+                chatBox.scrollTop = chatBox.scrollHeight; 
+            }
+
+            function displayCharacterLeft() {
+                const leftMessage = document.createElement('div');
+                leftMessage.className = "message character-left";
+                leftMessage.innerText = "Queen Elizabeth has left the chat.";
+                chatBox.appendChild(leftMessage);
+                questionContainer.innerHTML = ""; 
+                hatBox.scrollTop = chatBox.scrollHeight; 
+            }
+
+            
+            displayQuestionSet(questionSets.shift());
+        });
+    </script>
+</body>
+</html>

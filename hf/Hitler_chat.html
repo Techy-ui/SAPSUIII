@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram-Style Chat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: 'Arial', sans-serif;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #121212;
+        color: white;
+    }
+
+    .chat-container {
+        width: 400px;
+        background-color: #1c1c1c;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .chat-header {
+        display: flex;
+        align-items: center;
+        background-color: #292929;
+        color: white;
+        padding: 15px;
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    .header-button {
+        background: none;
+        border: none;
+        color: #a1a1a1;
+        font-size: 16px;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+
+    .header-button:hover {
+        color: #ffffff;
+    }
+
+    .chat-box {
+        height: 400px;
+        overflow-y: auto;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .message {
+        margin: 10px 0;
+        padding: 10px;
+        border-radius: 15px;
+        max-width: 70%;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .user-message {
+        background-color: #2a2a2a;
+        color: #e0e0e0;
+        align-self: flex-end; /* Aligns user message to the right */
+    }
+
+    .character-message {
+        background-color: #333;
+        color: #f1f1f1;
+        align-self: flex-start; /* Aligns character message to the left */
+    }
+
+    .character-left {
+        font-style: italic;
+        color: #f1f1f1;
+        text-align: center;
+        width: 100%; /* Full width to center-align */
+        margin: 20px 0; /* Space around the message */
+    }
+
+    .question-container {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 10px;
+        background-color: #1c1c1c;
+    }
+
+    .question-container button {
+        background-color: #3b3b3b;
+        color: #b0b0b0;
+        border: none;
+        padding: 10px;
+        margin: 5px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: bold;
+        width: 100%;
+        transition: 0.3s;
+    }
+
+    .question-container button:hover {
+        background-color: #535353;
+        color: white;
+    }
+</style>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <button class="header-button" onclick="window.location.href='Hitler.html'" class="chat-btn">Back</button>
+            <h2>Chat with Adolf Hitler</h2>
+        </div>
+        <div id="chat-box" class="chat-box">
+         
+        </div>
+        <div class="question-container">
+           
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const chatBox = document.getElementById('chat-box'); 
+            const questionContainer = document.querySelector('.question-container');
+
+           
+            const responses = {
+                "How did you envision Germany's future under your leadership?": "A dominant world power, free from 'undesirables'.",
+                "How did you reconcile your actions with moral principles?":"I redefined morality to serve my goals.",
+                "What drove your obsession with racial purity? ": "A distorted view of history and a desire for power.",
+                "How did you justify the atrocities committed during your regime?":"(No response, looking away)",
+                "Do you regret any of your decisions?":"(Silence)",
+                "Did you ever question the morality of your policies?":"(Cold stare) No.",
+                "Can you distinguish between patriotism and nationalism?":"(Confused) What's the difference?",
+                "What drove your obsession with racial purity?":"A distorted view of history and a desire for power.",
+                "Did you ever charm your way to get what you wanted?":"(Cold stare) My words were enough.",
+                "Can you teach me the art of persuasive speaking?":"(Sternly) My words were not for entertainment.                      Bye bye I gotta conquere Soviet union",
+                "Would you trade power for love?":"(Laughs) Never.                      Bye bye I gotta conquere Soviet union",
+                "Can you recite a poem that reflects your heart?":"(Coldly) My heart was for Germany.                      Bye bye I gotta conquere Soviet union"
+
+            };
+
+         
+            const questionSets = [
+                ["How did you envision Germany's future under your leadership?", "How did you reconcile your actions with moral principles?",  "What drove your obsession with racial purity? "],
+                ["How did you justify the atrocities committed during your regime?", "Do you regret any of your decisions?", "Did you ever question the morality of your policies?"],
+                ["Can you distinguish between patriotism and nationalism?","What drove your obsession with racial purity?","Did you ever charm your way to get what you wanted?"],
+                ["Can you teach me the art of persuasive speaking?","Would you trade power for love?","Can you recite a poem that reflects your heart?"],
+                
+            ]
+           
+            function displayQuestionSet(questionSet) {
+                questionContainer.innerHTML = ""; 
+                questionSet.forEach(question => {
+                    const questionButton = document.createElement('button');
+                    questionButton.innerText = question;
+                    questionButton.onclick = () => sendQuestion(question);
+                    questionContainer.appendChild(questionButton);
+                });
+            }
+
+            
+            function sendQuestion(question) {
+                
+                displayMessage(question, 'user-message');
+                setTimeout(() => {
+                   
+                    displayMessage(responses[question], 'character-message');
+
+                    
+                    const nextSet = questionSets.shift();
+                    if (nextSet) {
+                        setTimeout(() => displayQuestionSet(nextSet), 500); 
+                    }else {
+                        setTimeout(displayCharacterLeft, 1000);
+                    }
+                }, 500); 
+            }
+
+            
+            function displayMessage(message, messageType) {
+                const messageElement = document.createElement('div');
+                messageElement.className = `message ${messageType}`;
+                messageElement.innerText = message;
+                chatBox.appendChild(messageElement);
+                chatBox.scrollTop = chatBox.scrollHeight; 
+            }
+
+            function displayCharacterLeft() {
+                const leftMessage = document.createElement('div');
+                leftMessage.className = "message character-left";
+                leftMessage.innerText = "Adolf Hitler has left the chat.";
+                chatBox.appendChild(leftMessage);
+                questionContainer.innerHTML = ""; 
+                hatBox.scrollTop = chatBox.scrollHeight; 
+            }
+
+           
+            displayQuestionSet(questionSets.shift());
+        });
+    </script>
+</body>
+</html>

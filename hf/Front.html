@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIF Logo with Text and Button</title>
+    <style>
+        
+        .container {
+            display: flex;
+            align-items: center; 
+            padding: 20px;
+        }
+
+
+        .logo {
+            max-width: 2500px; 
+            margin-right: 20px; 
+        }
+        body, html {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: rgb(0, 0, 0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+    
+        }
+
+
+        .text-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+       
+        .text-container h1 {
+            margin: 0;
+            font-size: 96px;
+            font-family:cursive;
+        }
+        
+        .text-container h2 {
+            margin: 0;
+            font-size: 56px;
+            font-family:serif;
+            color:aqua
+        }
+        .description {
+            margin-top: 10px;
+            font-size: 30px;
+            font-family:'Times New Roman', Times, serif
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 24px;
+            background-color: #4CAF50; 
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            border-radius: 10px;
+            margin-top: 15px;
+            width: 130px; ;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .btn:hover {
+            background-color: #45a049; /* Hover color */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <img src="pg.gif" alt="Logo" class="logo">
+
+    
+    <div class="text-container">
+        <h1>SAPSUII</h1><br>
+        <p class="description">SAPSUII is a playful chat app where you can talk to iconic characters like Mona Lisa, Shinchan, and Queen Elizabeth—each with their own unique vibe and witty responses for endless fun!</p><br>
+        <h2 >Chat with Legends,<br> Laugh with Icons</h2>
+        <a href="listchar.html" class="btn">Let's goooo</a>
+    </div>
+</div>
+
+</body>
+</html>

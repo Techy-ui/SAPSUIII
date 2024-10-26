@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram-Style Chat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: 'Arial', sans-serif;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #121212;
+        color: white;
+    }
+
+    .chat-container {
+        width: 400px;
+        background-color: #1c1c1c;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .chat-header {
+        display: flex;
+        align-items: center;
+        background-color: #292929;
+        color: white;
+        padding: 15px;
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    .header-button {
+        background: none;
+        border: none;
+        color: #a1a1a1;
+        font-size: 16px;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+
+    .header-button:hover {
+        color: #ffffff;
+    }
+
+    .chat-box {
+        height: 400px;
+        overflow-y: auto;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .message {
+        margin: 10px 0;
+        padding: 10px;
+        border-radius: 15px;
+        max-width: 70%;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .user-message {
+        background-color: #2a2a2a;
+        color: #e0e0e0;
+        align-self: flex-end; /* Aligns user message to the right */
+    }
+
+    .character-message {
+        background-color: #333;
+        color: #f1f1f1;
+        align-self: flex-start; /* Aligns character message to the left */
+    }
+
+    .character-left {
+        font-style: italic;
+        color: #f1f1f1;
+        text-align: center;
+        width: 100%; /* Full width to center-align */
+        margin: 20px 0; /* Space around the message */
+    }
+
+    .question-container {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 10px;
+        background-color: #1c1c1c;
+    }
+
+    .question-container button {
+        background-color: #3b3b3b;
+        color: #b0b0b0;
+        border: none;
+        padding: 10px;
+        margin: 5px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: bold;
+        width: 100%;
+        transition: 0.3s;
+    }
+
+    .question-container button:hover {
+        background-color: #535353;
+        color: white;
+    }
+</style>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <button class="header-button" onclick="window.location.href='mona.html'" class="chat-btn">Back</button>
+            <h2>Chat with Mona Lisa</h2>
+        </div>
+        <div id="chat-box" class="chat-box">
+          
+        </div>
+        <div class="question-container">
+         
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const chatBox = document.getElementById('chat-box'); 
+            const questionContainer = document.querySelector('.question-container');
+
+           
+            const responses = {
+                "Hi There!! What's your secret?": "Ah, if I told you,it wouldn't be a secret anymore!But a good skincare routine helps!!",
+                "What's your favourite way to pass the time? ":"I love observing people—everyone has a story, and I’m all ears! ",
+                "Can you share a hidden talent or skill that no one knows about ": "I’m an expert at playing lute",
+                " If you could travel anywhere, where would you go?":"I’d love to see the world outside the Louvre—so many paintings, so little time!",
+                "What’s your favorite food?":"I’m a fan of a good cheese platter—pair it with a nice Bordeaux and it’s perfection!",
+                "What’s your idea of a perfect date?":"A picnic by the Seine, complete with art supplies for some spontaneous sketching!",
+                "What’s the weirdest compliment you’ve ever received?":"Someone once said my smile could launch a thousand ships! Now that’s pressure!",
+                "What’s your favorite thing about being famous?":"The attention is nice, but I prefer the art conversations—much more stimulating!",
+                "If you could paint anyone today, who would it be?":"Definitely someone with a wild personality—let’s capture that energy!",
+                "Would you blush if I said you're the most captivating woman in the Louvre?":"You're making me blush, sir.",
+                "What’s your hidden talent?":"I can hold a smile for hours! Try me!",
+                "What’s the most outrageous thing you’ve done?":"I once posed for a selfie! The Louvre was never the same!",
+                "Did you ever imagine your portrait would make hearts skip beats centuries later?":"I had no idea, but I'm flattered.             Sorry Sir but I need to go now as the museum is going to start soon ",
+                "What's the most ridiculous thing someone's said about your smile?":"That it's a sign of demonic possession!             Sorry Sir but I need to go now as the museum is going to start soon",
+                "If your portrait came to life, what mischief would you get up to?":"I'd sneak into the modern art section and swap places with a contemporary piece.             Sorry Sir but I need to go now as the museum is going to start soon"
+
+
+            };
+
+           
+            const questionSets = [
+                ["Hi There!! What's your secret?", "What's your favourite way to pass the time? ", "Can you share a hidden talent or skill that no one knows about "],
+                [" If you could travel anywhere, where would you go?", "What’s your favorite food?", "What’s your idea of a perfect date?"],
+                ["What’s the weirdest compliment you’ve ever received?","What’s your favorite thing about being famous?","If you could paint anyone today, who would it be?"],
+                ["Would you blush if I said you're the most captivating woman in the Louvre?","What’s your hidden talent?","What’s the most outrageous thing you’ve done?"],
+                ["Did you ever imagine your portrait would make hearts skip beats centuries later?","What's the most ridiculous thing someone's said about your smile?","If your portrait came to life, what mischief would you get up to?"]
+            ]
+           
+            function displayQuestionSet(questionSet) {
+                questionContainer.innerHTML = "";
+                questionSet.forEach(question => {
+                    const questionButton = document.createElement('button');
+                    questionButton.innerText = question;
+                    questionButton.onclick = () => sendQuestion(question);
+                    questionContainer.appendChild(questionButton);
+                });
+            }
+
+            
+            function sendQuestion(question) {
+                
+                displayMessage(question, 'user-message');
+                setTimeout(() => {
+                    
+                    displayMessage(responses[question], 'character-message');
+
+                    
+                    const nextSet = questionSets.shift(); 
+                    if (nextSet) {
+                        setTimeout(() => displayQuestionSet(nextSet), 500); 
+                    }else {
+                        setTimeout(displayCharacterLeft, 1000); 
+                    }
+                }, 500);
+            }
+
+            
+            function displayMessage(message, messageType) {
+                const messageElement = document.createElement('div');
+                messageElement.className = `message ${messageType}`;
+                messageElement.innerText = message;
+                chatBox.appendChild(messageElement);
+                chatBox.scrollTop = chatBox.scrollHeight; 
+            }
+
+            function displayCharacterLeft() {
+                const leftMessage = document.createElement('div');
+                leftMessage.className = "message character-left";
+                leftMessage.innerText = "Mona Lisa has left the chat.";
+                chatBox.appendChild(leftMessage);
+                questionContainer.innerHTML = ""; 
+                hatBox.scrollTop = chatBox.scrollHeight; 
+            }
+            displayQuestionSet(questionSets.shift());
+            });
+    </script>
+</body>
+</html>

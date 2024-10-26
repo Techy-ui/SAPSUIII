@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legends and Icons - Profiles</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+<style>
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.profile-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.profile {
+    width: 150px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s;
+    text-align: center;
+    padding: 10px;
+}
+
+.profile img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.profile h3 {
+    font-size: 1.2rem;
+    margin-top: 8px;
+    color: #333;
+}
+
+.header-button {
+        background: none;
+        border: none;
+        color: #a1a1a1;
+        font-size: 16px;
+        margin-right: 10px;
+        cursor: pointer;
+}
+.chat-btn {
+        background-color: #684caf;
+        color: white;
+        padding: 10px 20px;
+        font-size: 1rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        text-align: center;
+}
+
+.profile p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.profile:hover {
+    transform: scale(1.05);
+}
+
+</style>
+<body>
+    <div class="container">
+        <h1>Meet the Icons</h1>
+        <p>Click on an icon to learn more about each legendary figure!</p>
+        
+        <div class="profile-list">
+           
+            <div class="profile" onclick="window.location.href='mona.html'">
+                <img src="mona.jpg" alt="Mona Lisa">
+                <h3>Mona Lisa</h3>
+                <p>The lady with the mysterious smile.</p>
+            </div>
+
+          
+            <div class="profile" onclick="window.location.href='shinchan.html'">
+                <img src="shinchan.jpg" alt="Shinchan">
+                <h3>Shinchan</h3>
+                <p>The mischievous kid with endless energy.</p>
+            </div>
+
+            
+            <div class="profile" onclick="window.location.href='maveli.html'">
+                <img src="mahabali.jpg" alt="Mahabali">
+                <h3>Mahabali</h3>
+                <p>The wise and beloved king of Kerala.</p>
+            </div>
+
+           
+            <div class="profile" onclick="window.location.href='Hitler.html'">
+                <img src="hitler.jpg" alt="Hitler">
+                <h3>Hitler</h3>
+                <p>A controversial figure with intense convictions.</p>
+            </div>
+
+            
+            <div class="profile" onclick="window.location.href='queen.html'">
+                <img src="queen.jpg" alt="Queen Elizabeth">
+                <h3>Queen Elizabeth</h3>
+                <p>The steadfast queen with a royal legacy.</p>
+            </div>
+        </div>
+        <button onclick="window.location.href='Front.html'" class="chat-btn">Back</button>
+    </div>
+</body>
+</html>
